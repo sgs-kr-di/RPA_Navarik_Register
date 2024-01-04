@@ -1,0 +1,2120 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ClickCompany" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_StrDirBasePathTemplate" Type="InArgument(x:String)" />
+    <x:Property Name="In_StrDirBasePathInput" Type="InArgument(x:String)" />
+    <x:Property Name="Out_IntSetCount" Type="OutArgument(x:Int32)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1204,2203</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>OpenWeb_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="66">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="- Process Name : GetNavarikQuality Test Spec&#xA;- Author : Hiel.Kim&#xA;- Date : 23.03.22&#xA;- Change History :&#xA;- Description : 입력받은 파라미터를 이용하여, Navarik 선박의 Vessel Data를 가져옵니다.&#xA;    * Input    : In_Config&#xA;    * Output : " DisplayName="Get Navarik Quality Test Spec" sap:VirtualizedContainerService.HintSize="650,2138" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set1" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc1" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del1" />
+      <Variable x:TypeArguments="x:Int32" Name="IntSetPlusIdx" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set2" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set3" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set4" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set5" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set6" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set7" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set8" />
+      <Variable x:TypeArguments="sd:DataTable[]" Name="ArrayDTQualityData_Set" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del2" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del3" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del4" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del5" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del6" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del7" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del8" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc2" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc3" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc4" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc5" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc6" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc7" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc8" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Test1" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Test2" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Test3" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Test4" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Test5" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Test6" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Test7" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Test8" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Spec1" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Spec2" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Spec3" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Spec4" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Spec5" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Spec6" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Spec7" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Spec8" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Start Get Navarik Quality Test Spec_Log message" sap:VirtualizedContainerService.HintSize="588,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;[ GetNavarikQuality Test Spec - Start ]&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="588,82" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[IntSetPlusIdx]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">1</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Navarik Quality Results_On Element Appear" sap:VirtualizedContainerService.HintSize="588,267" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_4" RepeatForever="False">
+      <ui:OnUiElementAppear.Body>
+        <WriteLine sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="Navarik Quality Results Appeared!" />
+      </ui:OnUiElementAppear.Body>
+      <ui:OnUiElementAppear.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="25eb7f00-fa1a-4b3b-857e-09dd6489266b" InformativeScreenshot="fd961a3cf8f3c94fb3e801b0a89b3453" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl parentid='qualityTestHeader*' tag='TABLE' /&gt;&lt;webctrl id='Quality_Results_sect' tableRow='1' tag='SPAN' /&gt;" WaitForReady="COMPLETE">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+        </ui:Target>
+      </ui:OnUiElementAppear.Target>
+    </ui:OnUiElementAppear>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="588,677" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="532,562" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[Enumerable.Range(0,20)]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="x:Int32">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Int32" Name="C_item" />
+              </ActivityAction.Argument>
+              <Sequence sap:VirtualizedContainerService.HintSize="496,436" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:GetAttribute ContinueOnError="{x:Null}" Result="{x:Null}" Attribute="aaname" DisplayName="Navarik Quilaty Results_Get Attribute" sap:VirtualizedContainerService.HintSize="434,203" sap2010:WorkflowViewState.IdRef="GetAttribute_2">
+                  <ui:GetAttribute.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f3d9d637-2545-402c-8e02-bb640710390f" InformativeScreenshot="7f5052fc7cefda5deb808dbc970f616b" Selector="[string.Format(&quot;&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl parentid='qualityTestSetHeader*' tag='SPAN' aaname='Set {0}' /&gt;&quot;, IntSetPlusIdx)]" TimeoutMS="1000" WaitForReady="COMPLETE" />
+                  </ui:GetAttribute.Target>
+                </ui:GetAttribute>
+                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_10">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[IntSetPlusIdx]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[IntSetPlusIdx + 1]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:ForEach>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="502,514" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="496,445" sap2010:WorkflowViewState.IdRef="Sequence_34">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_11">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[IntSetPlusIdx]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[IntSetPlusIdx - 1]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_77">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[Out_IntSetCount]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[IntSetPlusIdx]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,90" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[&quot;Set Total Count : &quot; + IntSetPlusIdx.ToString]" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="588,52" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="594,163" sap2010:WorkflowViewState.IdRef="Sequence_37">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="ForEach`1_8" Values="[Enumerable.Range(0,IntSetPlusIdx)]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="C_Item" />
+                </ActivityAction.Argument>
+                <Sequence sap:VirtualizedContainerService.HintSize="496,340" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_12">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="sd:DataTable[]">[ArrayDTQualityData_Set]</OutArgument>
+                    </Assign.To>
+                  </Assign>
+                  <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set1]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="ExtractData_11" MaxNumberOfResults="0" SimulateClick="True">
+                    <ui:ExtractData.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__0_0' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:ExtractData.Target>
+                  </ui:ExtractData>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEach>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[IntSetPlusIdx]" sap:VirtualizedContainerService.HintSize="588,316" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <x:Null x:Key="0" />
+      <Sequence x:Key="1" sap:VirtualizedContainerService.HintSize="548,81" sap2010:WorkflowViewState.IdRef="Sequence_44">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set1]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_9" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__0_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_13">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_14">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc1.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_9" Values="[DR_data_to_del1]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc1]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_4" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_65">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Test1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_66">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Spec1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Sequence DisplayName="Navarik Test_Sequence" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_71">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_3" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_2" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-2" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_4" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_5" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Test1]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Quality SET 1" StartingCell="C7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Spec_Sequence" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_72">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_6" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_7" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_8" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_9" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-0" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_10" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Spec1]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Quality SET 1" StartingCell="J7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+      </Sequence>
+      <Sequence x:Key="2" sap:VirtualizedContainerService.HintSize="548,2751" sap2010:WorkflowViewState.IdRef="Sequence_35">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set1]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_8" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__0_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_17">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_18">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc1.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_12" Values="[DR_data_to_del1]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc1]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_6" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_67">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Test1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_68">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Spec1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set2]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_10" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__1_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_15">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set2.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_16">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc2.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_11" Values="[DR_data_to_del2]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc2]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_5" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_69">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Test2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc2.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_70">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Spec2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc2.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Sequence DisplayName="Navarik Test_Sequence" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_73">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_11" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_12" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_13" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-2" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_14" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_15" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Test1]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Quality SET 1" StartingCell="C7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Spec_Sequence" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_74">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_26" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_27" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_28" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_29" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-0" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_30" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Spec1]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Quality SET 1" StartingCell="J7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Test_Sequence" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_75">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_16" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_17" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_18" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-2" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_19" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_20" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Test2]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_5" SheetName="SET 2" StartingCell="C7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Spec_Sequence" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_76">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_21" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_22" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_23" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_24" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-0" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_25" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Spec2]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_6" SheetName="SET 2" StartingCell="J7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+      </Sequence>
+      <Sequence x:Key="3" sap:VirtualizedContainerService.HintSize="548,9195" sap2010:WorkflowViewState.IdRef="Sequence_38">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set1]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_12" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__0_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set2]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_13" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__1_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set3]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_14" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__2_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_19">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_20">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc1.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_13" Values="[DR_data_to_del1]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc1]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_7" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_71">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Test1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_72">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Spec1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_21">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set2.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_22">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc2.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_14" Values="[DR_data_to_del2]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc2]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_8" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_73">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Test2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc2.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_74">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Spec2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc2.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_23">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set3.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_24">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc3.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_15" Values="[DR_data_to_del3]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc3]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_9" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_75">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Test3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc3.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_76">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Spec3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc3.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Sequence DisplayName="Navarik Test_Sequence" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_77">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_51" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_52" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_53" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-2" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_54" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_55" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Test1]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_7" SheetName="Quality SET 1" StartingCell="C7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Spec_Sequence" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_78">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_56" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_57" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_58" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_59" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-0" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_60" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Spec1]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_8" SheetName="Quality SET 1" StartingCell="J7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Test_Sequence" sap:VirtualizedContainerService.HintSize="486,1357" sap2010:WorkflowViewState.IdRef="Sequence_79">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_61" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_62" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_63" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-2" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_64" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_65" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Test2]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_9" SheetName="SET 2" StartingCell="C7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Spec_Sequence" sap:VirtualizedContainerService.HintSize="486,1357" sap2010:WorkflowViewState.IdRef="Sequence_80">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_66" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_67" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_68" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_69" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-0" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_70" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Spec2]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_10" SheetName="SET 2" StartingCell="J7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Test_Sequence" sap:VirtualizedContainerService.HintSize="486,1357" sap2010:WorkflowViewState.IdRef="Sequence_81">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Test3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_31" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Test3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_32" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Test3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_33" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-2" DataTable="[DTQualityData_Test3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_34" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Test3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_35" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Test3]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_11" SheetName="SET 3" StartingCell="C7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Spec_Sequence" sap:VirtualizedContainerService.HintSize="486,1357" sap2010:WorkflowViewState.IdRef="Sequence_82">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Spec3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_36" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Spec3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_37" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Spec3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_38" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Spec3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_39" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-0" DataTable="[DTQualityData_Spec3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_40" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Spec3]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_12" SheetName="SET 3" StartingCell="J7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+      </Sequence>
+      <Sequence x:Key="4" sap:VirtualizedContainerService.HintSize="548,12111" sap2010:WorkflowViewState.IdRef="Sequence_39">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set1]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_16" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__0_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set2]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_17" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__1_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set3]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_18" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__2_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set4]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_19" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__3_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_25">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_26">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc1.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_16" Values="[DR_data_to_del1]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc1]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_10" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_27">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set2.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_28">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc2.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_17" Values="[DR_data_to_del2]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc2]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_11" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_29">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set3.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_30">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc3.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_18" Values="[DR_data_to_del3]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc3]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_12" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_31">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc4]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set4.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_32">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del4]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc4.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_19" Values="[DR_data_to_del4]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc4]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_13" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Sequence DisplayName="Navarik Test_Sequence" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_83">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_71" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_72" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_73" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-2" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_74" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Test1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_75" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Test1]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_13" SheetName="Quality SET 1" StartingCell="C7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Spec_Sequence" sap:VirtualizedContainerService.HintSize="486,81" sap2010:WorkflowViewState.IdRef="Sequence_84">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_76" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_77" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_78" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_79" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-0" DataTable="[DTQualityData_Spec1]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_80" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Spec1]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_14" SheetName="Quality SET 1" StartingCell="J7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Test_Sequence" sap:VirtualizedContainerService.HintSize="486,1357" sap2010:WorkflowViewState.IdRef="Sequence_85">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_81" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_82" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_83" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-2" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_84" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Test2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_85" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Test2]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_15" SheetName="SET 2" StartingCell="C7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Spec_Sequence" sap:VirtualizedContainerService.HintSize="486,1357" sap2010:WorkflowViewState.IdRef="Sequence_86">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_86" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_87" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_88" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_89" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-0" DataTable="[DTQualityData_Spec2]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_90" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Spec2]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_16" SheetName="SET 2" StartingCell="J7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Test_Sequence" sap:VirtualizedContainerService.HintSize="486,1357" sap2010:WorkflowViewState.IdRef="Sequence_87">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Test3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_91" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Test3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_92" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Test3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_93" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-2" DataTable="[DTQualityData_Test3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_94" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Test3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_95" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Test3]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_17" SheetName="SET 3" StartingCell="C7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Spec_Sequence" sap:VirtualizedContainerService.HintSize="486,1357" sap2010:WorkflowViewState.IdRef="Sequence_88">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Spec3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_96" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Spec3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_97" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Spec3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_98" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Spec3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_99" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-0" DataTable="[DTQualityData_Spec3]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_100" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Spec3]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_18" SheetName="SET 3" StartingCell="J7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Test_Sequence" sap:VirtualizedContainerService.HintSize="486,1357" sap2010:WorkflowViewState.IdRef="Sequence_89">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Test4]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_41" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Test4]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_42" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Test4]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_43" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-2" DataTable="[DTQualityData_Test4]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_44" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Test4]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_45" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Test4]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_19" SheetName="SET 4" StartingCell="C7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+        <Sequence DisplayName="Navarik Spec_Sequence" sap:VirtualizedContainerService.HintSize="486,1357" sap2010:WorkflowViewState.IdRef="Sequence_90">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-5" DataTable="[DTQualityData_Spec4]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_46" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-4" DataTable="[DTQualityData_Spec4]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_47" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-3" DataTable="[DTQualityData_Spec4]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_48" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-1" DataTable="[DTQualityData_Spec4]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_49" />
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Column-0" DataTable="[DTQualityData_Spec4]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_50" />
+          <ui:WriteRange AddHeaders="False" DataTable="[DTQualityData_Spec4]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_20" SheetName="SET 4" StartingCell="J7" WorkbookPath="[In_StrDirBasePathInput]" />
+        </Sequence>
+      </Sequence>
+      <Sequence x:Key="5" sap:VirtualizedContainerService.HintSize="548,3179" sap2010:WorkflowViewState.IdRef="Sequence_40">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set1]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_20" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__0_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set2]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_21" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__1_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set3]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_22" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__2_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set4]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_23" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__3_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set5]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_24" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__4_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_33">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,25" sap2010:WorkflowViewState.IdRef="Assign_34">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc1.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,25" sap2010:WorkflowViewState.IdRef="ForEach`1_20" Values="[DR_data_to_del1]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc1]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_14" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_35">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set2.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_36">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc2.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_21" Values="[DR_data_to_del2]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc2]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_15" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_37">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set3.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_38">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc3.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_22" Values="[DR_data_to_del3]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc3]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_16" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_39">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc4]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set4.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_40">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del4]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc4.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_23" Values="[DR_data_to_del4]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc4]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_17" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+      </Sequence>
+      <Sequence x:Key="6" sap:VirtualizedContainerService.HintSize="548,3781" sap2010:WorkflowViewState.IdRef="Sequence_41">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set1]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_25" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__0_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set2]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_26" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__1_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set3]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_27" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__2_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set4]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_28" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__3_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set5]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_29" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__4_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set6]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_30" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__5_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_41">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_42">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc1.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_24" Values="[DR_data_to_del1]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc1]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_18" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_43">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set2.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_44">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc2.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_25" Values="[DR_data_to_del2]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc2]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_19" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_45">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set3.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_46">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc3.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_26" Values="[DR_data_to_del3]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc3]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_20" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_47">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc4]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set4.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_48">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del4]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc4.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_27" Values="[DR_data_to_del4]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc4]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_21" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+      </Sequence>
+      <Sequence x:Key="7" sap:VirtualizedContainerService.HintSize="548,3928" sap2010:WorkflowViewState.IdRef="Sequence_42">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set1]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_31" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__0_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set2]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_32" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__1_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set3]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_33" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__2_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set4]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_34" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__3_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set5]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_35" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__4_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set6]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_36" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__5_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set7]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_37" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__6_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_49">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_50">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc1.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_28" Values="[DR_data_to_del1]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc1]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_22" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_51">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set2.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_52">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc2.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_29" Values="[DR_data_to_del2]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc2]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_29" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_53">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set3.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_54">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc3.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_30" Values="[DR_data_to_del3]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc3]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_27" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_55">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc4]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set4.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_56">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del4]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc4.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_31" Values="[DR_data_to_del4]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc4]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_23" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+      </Sequence>
+      <Sequence x:Key="8" sap:VirtualizedContainerService.HintSize="548,4075" sap2010:WorkflowViewState.IdRef="Sequence_43">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set1]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_38" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__0_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set2]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_39" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__1_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set3]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_40" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__2_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set4]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_41" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__3_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set5]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_42" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__4_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set6]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_43" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__5_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set7]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_44" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__6_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[DTQualityData_Set8]" DisplayName="Navarik Quailty Data_Extract Structured Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='text' /&gt;&lt;column name='Column-1' attr='text' /&gt;&lt;column name='Column-2' attr='text' /&gt;&lt;column name='Column-3' attr='text' /&gt;&lt;column name='Column-4' attr='text' /&gt;&lt;column name='Column-5' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="486,107" sap2010:WorkflowViewState.IdRef="ExtractData_45" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e00ee1e-98a3-46a8-8767-5680f77949f4" InformativeScreenshot="c6041b946cfc4d5790bf490f11eef99c" Selector="&lt;html app='msedge.exe' title='*Navarik Inspection*' /&gt;&lt;webctrl tableRow='3' tag='TABLE' parentid='qualityTestSampleBody__7_0' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_57">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set1.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_58">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del1]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc1.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_32" Values="[DR_data_to_del1]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc1]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_24" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_59">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set2.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_60">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del2]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc2.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_33" Values="[DR_data_to_del2]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_68">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc2]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_25" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_61">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set3.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_62">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del3]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc3.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_34" Values="[DR_data_to_del3]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_69">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc3]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_26" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_63">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataTable">[DTQualityData_Calc4]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataTable">[DTQualityData_Set4.Copy()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_64">
+          <Assign.To>
+            <OutArgument x:TypeArguments="sd:DataRow[]">[DR_data_to_del4]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="sd:DataRow[]">[DTQualityData_Calc4.Select("[Column-0]='Test' or [Column-0]= 'No Additional Tests' ")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="486,423" sap2010:WorkflowViewState.IdRef="ForEach`1_35" Values="[DR_data_to_del4]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="sd:DataRow">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,297" sap2010:WorkflowViewState.IdRef="Sequence_70">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:RemoveDataRow RowIndex="{x:Null}" DataTable="[DTQualityData_Calc4]" DisplayName="Remove data row" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="RemoveDataRow_28" Row="[item]" />
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <ui:ForEach.CurrentIndex>
+            <OutArgument x:TypeArguments="x:Int32" />
+          </ui:ForEach.CurrentIndex>
+        </ui:ForEach>
+      </Sequence>
+    </Switch>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="588,52" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,261" sap2010:WorkflowViewState.IdRef="Sequence_91">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[DTQualityData_Calc1.RowCount = 6]" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="If_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="526,545" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="In_StrDirBasePathTemplate&#xA;&quot;Data\Template\Navarik_Template.xlsm&quot;" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="484,457" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[In_StrDirBasePathTemplate]">
+                  <ui:ExcelApplicationScope.Body>
+                    <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="450,305" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ExecuteMacro ContinueOnError="{x:Null}" MacroOutput="{x:Null}" sap2010:Annotation.AnnotationText="{}{In_StrDirBasePathInput, New DirectoryInfo(In_StrDirBasePathInput).Name}" DisplayName="Execute Macro" sap:VirtualizedContainerService.HintSize="388,102" sap2010:WorkflowViewState.IdRef="ExecuteMacro_4" MacroName="NavarikHideColumn" MacroParameters="[{In_StrDirBasePathInput, New DirectoryInfo(In_StrDirBasePathInput).Name}]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ExecuteMacro>
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="450,213" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:ExecuteMacro ContinueOnError="{x:Null}" MacroOutput="{x:Null}" sap2010:Annotation.AnnotationText="{}{In_StrDirBasePathInput, New DirectoryInfo(In_StrDirBasePathInput).Name}" DisplayName="Execute Macro" sap:VirtualizedContainerService.HintSize="388,102" sap2010:WorkflowViewState.IdRef="ExecuteMacro_3" MacroName="NavarikHideColumn" MacroParameters="[{&quot;C:\UiPath\RPA\KR\Ulsan\OGC\robot999\SGS_RPA_KR_Ulsan_OGC_5_Navarik_Draft\Data\Input\Test_Folder_Navarik\Navarik - RPA 엑셀3(Loading).xlsx&quot;, &quot;Navarik - RPA 엑셀3(Loading).xlsx&quot;}]">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:ExecuteMacro>
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:CommentOut>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ExcelApplicationScope.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ExcelApplicationScope>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:LogMessage DisplayName="End Get Navarik Quality Test Spec_Log message" sap:VirtualizedContainerService.HintSize="588,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;[ Get Navarik Quality Test Spec - End ]&quot;]" />
+  </Sequence>
+</Activity>

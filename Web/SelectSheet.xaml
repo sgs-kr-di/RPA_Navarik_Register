@@ -1,0 +1,210 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SelectSheet" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_StrDirBasePathTemplate" Type="InArgument(x:String)" />
+    <x:Property Name="In_StrDirBasePathInput" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1219,1060</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>OpenWeb_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="132">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Private.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.Cryptography</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="- Process Name : Select Sheet&#xA;- Author : Hiel.Kim&#xA;- Date : 23.03.22&#xA;- Change History :&#xA;- Description : 입력받은 파라미터를 이용하여, Navarik 엑셀의 시트를 선택하여 저장한다.&#xA;    * Input    : In_Config&#xA;    * Output : " DisplayName="Select Sheet" sap:VirtualizedContainerService.HintSize="546,995" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set1" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc1" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del1" />
+      <Variable x:TypeArguments="x:Int32" Name="IntSetPlusIdx" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set2" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set3" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set4" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set5" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set6" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set7" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Set8" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del2" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del3" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del4" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del5" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del6" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del7" />
+      <Variable x:TypeArguments="sd:DataRow[]" Name="DR_data_to_del8" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc2" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc3" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc4" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc5" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc6" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc7" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Calc8" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_MethodUsed1" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_MethodUsed2" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_MethodUsed3" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_MethodUsed4" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_MethodUsed5" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_MethodUsed6" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_MethodUsed7" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_MethodUsed8" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_UOM1" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_UOM2" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_UOM3" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_UOM4" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_UOM5" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_UOM6" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_UOM7" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_UOM8" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTNavarikUOM" />
+      <Variable x:TypeArguments="x:Int32" Name="IntSetUomIdx" />
+      <Variable x:TypeArguments="x:String" Name="StrGetSampleLocation" />
+      <Variable x:TypeArguments="x:Int32" Name="IntSetCnt" />
+      <Variable x:TypeArguments="s:String[]" Name="ListStrSheetName" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable]" Name="DTQualityData_Result1" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Start Select Sheet_Log message" sap:VirtualizedContainerService.HintSize="484,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;[ Select Sheet - Start ]&quot;]" />
+    <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="In_StrDirBasePathTemplate&#xA;&quot;Data\Template\Navarik_Template.xlsm&quot;" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="484,405" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_19" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[In_StrDirBasePathTemplate]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="450,213" sap2010:WorkflowViewState.IdRef="Sequence_186">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExecuteMacro ContinueOnError="{x:Null}" MacroOutput="{x:Null}" sap2010:Annotation.AnnotationText="{}{In_StrDirBasePathInput, New DirectoryInfo(In_StrDirBasePathInput).Name}" DisplayName="Execute Macro_MethodUsed" sap:VirtualizedContainerService.HintSize="388,102" sap2010:WorkflowViewState.IdRef="ExecuteMacro_33" MacroName="SelectSheets" MacroParameters="[{In_StrDirBasePathInput, New DirectoryInfo(In_StrDirBasePathInput).Name, &quot;Navarik 설정&quot;}]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ExecuteMacro>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ExcelApplicationScope>
+    <ui:LogMessage DisplayName="End Select Sheet_Log message" sap:VirtualizedContainerService.HintSize="484,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;[ Select Sheet - End ]&quot;]" />
+  </Sequence>
+</Activity>
